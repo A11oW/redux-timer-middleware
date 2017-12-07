@@ -48,7 +48,7 @@ export default function timerMiddleware({dispatch}) {
                         if (current.period === 0) {
                             clearInterval(current.interval);
                             // last tick and then end
-                            dispatch({type: actionName});
+                            dispatch({type: actionName, action: { periodLeft: current.period }});
                             // dispatch end action
                             dispatch({type: `${actionName}_END`});
                         } else {
